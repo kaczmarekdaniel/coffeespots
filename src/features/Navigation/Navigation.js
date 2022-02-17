@@ -43,8 +43,9 @@ const Navigation = (props) => {
       </Logo>
       <NavBar className="flexRow">
         <NavButton text={"strona główna"} target={"/"} />
-        <NavButton text={"poradniki"} target={"/tutorials"} />
-        <NavButton text={"kontakt"} target={"/contact"} />
+        <NavButton text={"poradniki"} target={"/guides"} />
+        <NavButton text={"ui"} target={"/components"} />
+        <NavButton text={"kawiarnie"} target={"/coffeeshops"} />
       </NavBar>
       <AppButton className="flexRow">Coffee App -&gt;</AppButton>
     </Wrapper>

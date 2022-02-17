@@ -10,7 +10,13 @@ const Wrapper = styled.div`
     font-size: 32px;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.61, 0.07, 0.23, 0.89);
   }
+
+  h1:hover {
+    letter-spacing: 0.5px;
+  }
+
   p {
     font-size: 14px;
     font-weight: 500;

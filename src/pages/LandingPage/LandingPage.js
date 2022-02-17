@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import CityTag from "../../components/CityTag/CityTag";
 import Input from "../../components/Input/Input";
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
@@ -8,20 +9,26 @@ import Article from "../../components/Article/Article";
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 1400px;
+  width: 1400px;
+  max-width: 100vw;
   height: auto;
   z-index: 5;
+  overflow: hidden;
 `;
 
 const LandingPageFirstSection = styled.div`
   height: auto;
   min-height: 70vh;
-  width: 100%;
+  max-width: 100vw;
   padding-top: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (min-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 const WelcomeTextAndImage = styled.div`
@@ -62,7 +69,7 @@ const Image = styled.div`
 const AppQuickAccess = styled.div`
   min-height: 25vh;
   height: auto;
-  width: 95%;
+  width: 100%;
   flex-wrap: wrap;
   .container {
     height: auto%;
@@ -98,7 +105,6 @@ const LandingPageSecondSection = styled.div`
   min-height: 30vh;
   z-index: 10;
   color: white;
-  padding: 5%;
   .cities {
     margin: 25px 0 25px 0;
     max-width: 700px;
@@ -111,7 +117,7 @@ const LandingPageSecondSection = styled.div`
     overflow: hidden;
     top: 0;
     background: red;
-    width: calc(100vw - 20px);
+    width: 100%;
     height: 100%;
     background-color: #333436;
   }
@@ -206,7 +212,9 @@ const LandingPage = (props) => {
           <Article />
           <Article />
         </div>
-        <ArrowButton>Zobacz wszystkie </ArrowButton>
+        <Link to="/guides">
+          <ArrowButton>Zobacz wszystkie </ArrowButton>
+        </Link>
       </LandingPageThirdSection>
     </Wrapper>
   );

@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 102vw;
+    width: 100%;
     height: 100%;
     content: "";
     background: #333436;
@@ -60,7 +60,7 @@ const Footer = (props) => {
         <Link to="/articles">Poradniki</Link>
         <Link to="/app">Szukaj kawiarni</Link>
       </Section>
-      <Section>2</Section>
+      <Section>Daniel Kaczmarek</Section>
     </Wrapper>
   );
 };
