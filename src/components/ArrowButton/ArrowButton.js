@@ -9,6 +9,8 @@ justify-content: flex-end;
 align-items: center;
   width: auto;
   height: 50px;
+  cursor: pointer;
+
   background-color: transparent;
   border: 2px solid black;
   position: relative;

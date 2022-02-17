@@ -13,6 +13,7 @@ const Wrapper = styled(NavLink)`
   padding: 2px 10px 3px 10px;
   text-decoration: none;
   color: black;
+  white-space: nowrap;
   &.active {
     position: relative;
     z-index: 10;

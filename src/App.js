@@ -7,6 +7,8 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import Error404 from "./pages/Error404/Error404";
 import ComponentsShowOff from "./pages/ComponentsShowOff/ComponentsShowOff";
 import Footer from "./features/Footer/Footer";
+import Guides from "./pages/Guides/Guides";
+import Coffeeshops from "./pages/Coffeeshops/Coffeeshops";
 const ContentContainer = styled.div`
   height: 90vh;
   background-color: lightgray;
@@ -21,9 +23,10 @@ function App() {
         <Navigation />{" "}
         <Routes>
           <Route path="/" exact element={<LandingPage />} />
-          <Route path="/components" exact element={<ComponentsShowOff />} />
+          <Route path="components" exact element={<ComponentsShowOff />} />
 
-          <Route path="about" element={<p>about</p>} />
+          <Route path="guides" element={<Guides />} />
+          <Route path="coffeeshops" element={<Coffeeshops />} />
 
           <Route path="*" element={<Error404 />} />
         </Routes>
