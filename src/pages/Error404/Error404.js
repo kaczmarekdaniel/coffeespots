@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
@@ -13,6 +14,7 @@ const Error404 = (props) => {
     <Wrapper className="flexColumn">
       <h1>404</h1>
       <h1> . . . </h1>
+      <Link to="/">Wróc do strony głównej</Link>
     </Wrapper>
   );
 };

@@ -13,7 +13,6 @@ const Wrapper = styled.div`
   max-width: 100vw;
   height: auto;
   z-index: 5;
-  overflow: hidden;
 `;
 
 const LandingPageFirstSection = styled.div`
@@ -117,7 +116,7 @@ const LandingPageSecondSection = styled.div`
     overflow: hidden;
     top: 0;
     background: red;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: #333436;
   }
@@ -141,6 +140,8 @@ const LandingPageThirdSection = styled.div`
   padding: 2%;
   .title {
     font-size: 48px;
+    letter-spacing: -1px;
+    font-weight: 500;
   }
 
   .container {
