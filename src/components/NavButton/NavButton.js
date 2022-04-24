@@ -36,9 +36,7 @@ const Wrapper = styled(NavLink)`
 const NavButton = ({ text = "strona głowna", target }) => {
   return (
     <>
-      <Wrapper activeClassName="active" to={target}>
-        {text}
-      </Wrapper>
+      <Wrapper to={target}>{text}</Wrapper>
     </>
   );
 };
