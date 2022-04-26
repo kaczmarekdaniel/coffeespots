@@ -41,13 +41,18 @@ const Icon = styled(BiSearch)`
   padding: 5px 3px 5px 7px;
 `;
 
-const Input = ({ placeholder = "Type here ..." }) => {
+const Input = ({ placeholder = "Type here ...", setInputValue }) => {
   return (
     <Wrapper className="flexRow">
       <button className="flexRow">
         <Icon />
       </button>
-      <TextInput placeholder={placeholder}></TextInput>
+      <TextInput
+        placeholder={placeholder}
+        onKeyUp={(e) => {
+          setInputValue(e.target.value.toLowerCase());
+        }}
+      ></TextInput>
     </Wrapper>
   );
 };

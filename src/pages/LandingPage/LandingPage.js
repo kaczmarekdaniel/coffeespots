@@ -6,6 +6,7 @@ import Input from "../../components/Input/Input";
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 import Article from "../../components/Article/Article";
+import LandingPageCitySearch from "../../features/LandingPageCitySearch/LandingPageCitySearch";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -71,10 +72,10 @@ const AppQuickAccess = styled.div`
   width: 100%;
   flex-wrap: wrap;
   .container {
-    height: auto%;
+    height: auto;
     width: 100%;
     text-align: center;
-    padding: 0 5% 0 5%;
+    padding: 5%;
   }
 
   div h1 {
@@ -92,45 +93,9 @@ const AppQuickAccess = styled.div`
     .container {
       height: 100%;
       width: 30%;
-      padding: 0%;
+      padding: 2%;
       text-align: left;
     }
-  }
-`;
-
-const LandingPageSecondSection = styled.div`
-  width: 100%;
-  position: relative;
-  min-height: 30vh;
-  z-index: 10;
-  color: white;
-  .cities {
-    margin: 25px 0 25px 0;
-    max-width: 700px;
-    height: auto;
-    flex-wrap: wrap;
-  }
-
-  .background {
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    background: red;
-    width: 100vw;
-    height: 100%;
-    background-color: #333436;
-  }
-
-  .background:before {
-    position: absolute;
-    top: 0;
-    left: -5vw;
-    width: calc(110vw);
-    height: 100%;
-    content: "";
-    background-color: #929fa5;
-    z-index: 5;
-    transform: rotate(-10deg);
   }
 `;
 
@@ -186,26 +151,9 @@ const LandingPage = (props) => {
           </div>
         </AppQuickAccess>
       </LandingPageFirstSection>
-      <LandingPageSecondSection className="flexColumn">
-        <div className="background" />
-        <Input placeholder={"Znajdź swoje miasto"} />
-        <div className="flexRow cities">
-          <CityTag text={"Szczecin"} />
-          <CityTag text={"Warszawa"} />
-          <CityTag text={"Bydgoszcz"} />
-          <CityTag text={"Gdynia"} />
-          <CityTag text={"Koszalin"} />
-          <CityTag text={"Stargard"} />
-          <CityTag text={"Bydgoszcz"} />
-          <CityTag text={"Gdynia"} />
-          <CityTag text={"Koszalin"} />
-          <CityTag text={"Stargard"} />
-          <CityTag text={"Gdynia"} />
-          <CityTag text={"Koszalin"} />
-          <CityTag text={"Stargard"} />
-        </div>
-        <SlideFromSideButton>Pokaz wyniki</SlideFromSideButton>
-      </LandingPageSecondSection>
+
+      <LandingPageCitySearch />
+
       <LandingPageThirdSection className="flexColumn">
         <h1 className="title">Poradniki</h1>
         <div className="flexRow container">
