@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { coffeshops } from "../../services/mock-data/coffeeshops";
 import Input from "../../components/Input/Input";
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
-
+import StickyFilters from "../../features/StickyFilters/StickyFilters";
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -24,14 +24,13 @@ const FilterBox = styled.header`
   height: 300px;
   max-width: 900px;
   width: 100%;
-  background-color: #929fa5;
+  //background-color: #929fa5;
 
   @media screen and (min-width: 850px) {
     border-radius: 20px;
   }
 
   h1 {
-    color: whitesmoke;
     font-weight: 500;
   }
 `;
@@ -127,6 +126,7 @@ const Coffeeshops = (props) => {
         </SlideFromSideButton>
         <button> zobacz wszystkie \/</button>
       </FilterBox>
+      <StickyFilters />
       <ContentBox>
         {coffeshops.map((element) => (
           <Link to={element.urlName} style={{ textDecoration: "none" }}>

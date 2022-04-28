@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   align-items: flex-start;
   height: auto;
   max-width: 1400px;
-  height: 90vh;
+  min-height: 90vh;
   padding: 10vh 100px 10vh 100px;
   z-index: 1;
   flex-wrap: wrap;
