@@ -6,6 +6,8 @@ import TextInput from "../../components/Input/Input";
 import Article from "../../components/Article/Article";
 import NavButton from "../../components/NavButton/NavButton";
 
+import useToast from "../../hooks/useToast";
+
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
 
 const Wrapper = styled.div`
@@ -21,6 +23,8 @@ const Container = styled.div`
 `;
 
 const ComponentsShowOff = (props) => {
+  const { Toast, isOpen, handleCloseToast, setToastState } = useToast();
+
   return (
     <Wrapper className="flexColumn">
       <Container className="flexRow">
@@ -50,6 +54,20 @@ const ComponentsShowOff = (props) => {
       <Container className="flexRow">
         {" "}
         <Article />
+      </Container>
+
+      <Container className="flexRow">
+        {isOpen ? (
+          <Toast
+            isOpen={isOpen}
+            handleClose={handleCloseToast}
+            setModalState={setToastState}
+            className="positive"
+          >
+            <h2>toast message</h2>
+            <p>date</p>
+          </Toast>
+        ) : null}
       </Container>
     </Wrapper>
   );

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { coffeshops } from "../../services/mock-data/coffeeshops";
 import Input from "../../components/Input/Input";
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
 import StickyFilters from "../../features/StickyFilters/StickyFilters";
+import axios from "axios";
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -21,10 +22,15 @@ const Wrapper = styled.div`
   }
 `;
 const FilterBox = styled.header`
-  height: 300px;
+  height: 200px;
   max-width: 900px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   //background-color: #929fa5;
+  z-index: 50;
+  background: white;
 
   @media screen and (min-width: 850px) {
     border-radius: 20px;
@@ -32,6 +38,7 @@ const FilterBox = styled.header`
 
   h1 {
     font-weight: 500;
+    margin-bottom: 20px;
   }
 `;
 
@@ -116,31 +123,82 @@ const Coffeeshop = styled.div`
 `;
 
 const Coffeeshops = (props) => {
+  const [showFilters, setShowFilters] = useState(true);
+  const [places, setPlaces] = useState(null);
+
+  const toggleState = (showFilters, setShowFilters) => {
+    setShowFilters(!showFilters);
+  };
+
+  const url = "http://localhost:4500/coffeeshop";
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(url);
+      setPlaces(response.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const formHandler = async () => {
+    const data = {
+      name: "Przystań na kawę",
+      city: "Szczecin",
+      urlName: "przystan-na-kawe-szcecin",
+      street: "Rayskiego",
+      photoURL:
+        "https://bi.im-g.pl/im/0d/4b/16/z23378957IBG,Przystan-na-Kawe--nowy-lokal-przy-ul--Rayskiego-w-.jpg",
+
+      website: "https://altcoffee.pl",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed ",
+    };
+    try {
+      const response = await axios.post(url, data);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Wrapper>
+      <StickyFilters showFilters={showFilters} />
+
       <FilterBox className="flexColumn">
         <h1>Szukaj</h1>
         <Input type="text"></Input>
-        <SlideFromSideButton className="searchButton" text={"szukaj"}>
-          Szukaj
-        </SlideFromSideButton>
-        <button> zobacz wszystkie \/</button>
       </FilterBox>
-      <StickyFilters />
+
       <ContentBox>
-        {coffeshops.map((element) => (
-          <Link to={element.urlName} style={{ textDecoration: "none" }}>
-            <Coffeeshop key={element.name}>
-              <img src={element.photo.url} alt={element.photo.alt} />
-              <div className="flexColumn basicInfo">
-                <h1>{element.name}</h1>
-                <p>
-                  {element.street}, {element.city}
-                </p>
-              </div>
-            </Coffeeshop>
-          </Link>
-        ))}
+        {places != null ? (
+          <>
+            {places.map((element) => (
+              <Link
+                to={element.urlName}
+                style={{ textDecoration: "none" }}
+                key={element._id}
+              >
+                <Coffeeshop key={element.name}>
+                  <img src={element.photoURL} />
+                  <div className="flexColumn basicInfo">
+                    <h1>{element.name}</h1>
+                    <p>
+                      {element.street}, {element.city}
+                    </p>
+                  </div>
+                </Coffeeshop>
+              </Link>
+            ))}
+          </>
+        ) : (
+          "loading..."
+        )}
       </ContentBox>
     </Wrapper>
   );

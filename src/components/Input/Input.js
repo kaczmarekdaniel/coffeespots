@@ -44,15 +44,20 @@ const Icon = styled(BiSearch)`
 const Input = ({ placeholder = "Type here ...", setInputValue }) => {
   return (
     <Wrapper className="flexRow">
-      <button className="flexRow">
-        <Icon />
-      </button>
       <TextInput
         placeholder={placeholder}
         onKeyUp={(e) => {
           setInputValue(e.target.value.toLowerCase());
         }}
       ></TextInput>
+      <button
+        onClick={() => {
+          alert("searching");
+        }}
+        className="flexRow"
+      >
+        <Icon />
+      </button>
     </Wrapper>
   );
 };

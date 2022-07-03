@@ -1,4 +1,4 @@
-export const coffeshops = [
+const coffeshops = [
   {
     name: "tokawa",
     city: "Szczecin",
@@ -40,3 +40,5 @@ export const coffeshops = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies leo integer malesuada nunc vel risus commodo. A cras semper auctor neque vitae tempus quam. Molestie at elementum eu facilisis. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Massa tincidunt dui ut ornare. Purus gravida quis blandit turpis. ",
   },
 ];
+
+export default coffeshops;
