@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: auto;
   min-height: 100vh;
-  padding-top: 10vh;
+  padding-top: 5vh;
   z-index: 1;
   flex-direction: column;
   p {
@@ -168,8 +168,6 @@ const Coffeeshops = (props) => {
 
   return (
     <Wrapper>
-      <StickyFilters showFilters={showFilters} />
-
       <FilterBox className="flexColumn">
         <h1>Szukaj</h1>
         <Input type="text"></Input>
@@ -184,6 +182,24 @@ const Coffeeshops = (props) => {
                 style={{ textDecoration: "none" }}
                 key={element._id}
               >
+                <Coffeeshop key={element.name}>
+                  <img src={element.photoURL} />
+                  <div className="flexColumn basicInfo">
+                    <h1>{element.name}</h1>
+                    <p>
+                      {element.street}, {element.city}
+                    </p>
+                  </div>
+                </Coffeeshop>
+                <Coffeeshop key={element.name}>
+                  <img src={element.photoURL} />
+                  <div className="flexColumn basicInfo">
+                    <h1>{element.name}</h1>
+                    <p>
+                      {element.street}, {element.city}
+                    </p>
+                  </div>
+                </Coffeeshop>
                 <Coffeeshop key={element.name}>
                   <img src={element.photoURL} />
                   <div className="flexColumn basicInfo">

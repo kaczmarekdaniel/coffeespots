@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Wrapper = styled.button`
-display: flex;
-justify-content: flex-end;
-align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   width: auto;
   height: 50px;
   cursor: pointer;
@@ -15,18 +15,17 @@ align-items: center;
   border: 2px solid black;
   position: relative;
   p {
-      font-size 16px;
-      font-weight: bold;
-      margin: 0 0 0 10px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 0 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   overflow: hidden;
-  transition: color .4s cubic-bezier(.61,.07,.23,.89);
-  
+  transition: color 0.4s cubic-bezier(0.61, 0.07, 0.23, 0.89);
+
   &::after {
     position: absolute;
-    content: '';
+    content: "";
 
     width: 500px;
     height: 500px;
@@ -37,14 +36,14 @@ align-items: center;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 300px;
     transform-origin: 50%;
-    transition: transform 0.4s cubic-bezier(.61,.07,.23,.89);
+    transition: transform 0.4s cubic-bezier(0.61, 0.07, 0.23, 0.89);
     z-index: -1;
   }
-  
+
   &:hover::after {
     transform: translate(-50%, -50%) scale(1);
   }
-  
+
   &:hover {
     color: white;
   }
