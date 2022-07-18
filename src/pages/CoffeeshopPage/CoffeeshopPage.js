@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom";
 import {
   Wrapper,
   AboutSection,
-  ContactSection,
+  BottomSection,
   ImageSlider,
-  MenuSection,
-  CommentSection,
+  Address,
+  Reviews,
 } from "./Coffeeshop.styles";
+import Input from "../../components/Input/Input";
 import screen from "./screen.png";
 import axios from "axios";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
@@ -49,18 +50,17 @@ const CoffeeshopPage = (props) => {
           <ImageSlider></ImageSlider>
         </section>
       </AboutSection>
-      <ContactSection>
-        <div className="address">
-          <span>{response.street}</span>
-          <span>{response.city}</span>
-          <span>{response.website}</span>
-        </div>
-        <img src={screen}></img>
-      </ContactSection>
-
-      <MenuSection>menu</MenuSection>
-
-      <CommentSection>Opinie</CommentSection>
+      <BottomSection>
+        <Reviews></Reviews>
+        <Address>
+          <div className="flexColumn address">
+            <span>{response.street}</span>
+            <span>{response.city}</span>
+            <span>{response.website}</span>
+          </div>
+          <img src={screen} alt=""></img>
+        </Address>
+      </BottomSection>
     </Wrapper>
   ) : (
     <Wrapper></Wrapper>

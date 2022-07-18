@@ -84,13 +84,14 @@ export const ImageSlider = styled.div`
   background: #b8b0a9;
 `;
 
-export const ContactSection = styled.div`
+export const BottomSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 35vh;
   padding: 20px;
+  margin-bottom: 50px;
   img {
     max-height: 100%;
     cursor: pointer;
@@ -105,16 +106,21 @@ export const ContactSection = styled.div`
   }
 `;
 
-export const MenuSection = styled.div`
-  width: 100%;
-  height: 50vh;
+export const Address = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0 1px black;
+  padding: 1px;
+`;
+
+export const Reviews = styled.div`
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: lightblue;
-`;
-
-export const CommentSection = styled.div`
-  width: 100%;
-  height: 50vh;
 `;

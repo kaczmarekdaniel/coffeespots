@@ -6,6 +6,7 @@ import Input from "../../components/Input/Input";
 import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromSideButton";
 import StickyFilters from "../../features/StickyFilters/StickyFilters";
 import axios from "axios";
+import Filters from "../../features/Filters/Filters";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,26 +22,6 @@ const Wrapper = styled.div`
     color: black;
   }
 `;
-const FilterBox = styled.header`
-  height: 200px;
-  max-width: 900px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //background-color: #929fa5;
-  z-index: 50;
-  background: white;
-
-  @media screen and (min-width: 850px) {
-    border-radius: 20px;
-  }
-
-  h1 {
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-`;
 
 const ContentBox = styled.section`
   display: flex;
@@ -54,7 +35,6 @@ const ContentBox = styled.section`
   background-color: white;
   border-radius: 20px;
   transform: translateY(-20px);
-  padding-top: 50px;
 
   @media screen and (min-width: 850px) {
     transform: translateY(0px);
@@ -76,7 +56,6 @@ const Coffeeshop = styled.div`
   z-index: 5;
   img {
     max-height: 100%;
-    border-radius: 15px;
   }
 
   h1 {
@@ -168,11 +147,7 @@ const Coffeeshops = (props) => {
 
   return (
     <Wrapper>
-      <FilterBox className="flexColumn">
-        <h1>Szukaj</h1>
-        <Input type="text"></Input>
-      </FilterBox>
-
+      <Filters />
       <ContentBox>
         {places != null ? (
           <>
@@ -182,24 +157,6 @@ const Coffeeshops = (props) => {
                 style={{ textDecoration: "none" }}
                 key={element._id}
               >
-                <Coffeeshop key={element.name}>
-                  <img src={element.photoURL} />
-                  <div className="flexColumn basicInfo">
-                    <h1>{element.name}</h1>
-                    <p>
-                      {element.street}, {element.city}
-                    </p>
-                  </div>
-                </Coffeeshop>
-                <Coffeeshop key={element.name}>
-                  <img src={element.photoURL} />
-                  <div className="flexColumn basicInfo">
-                    <h1>{element.name}</h1>
-                    <p>
-                      {element.street}, {element.city}
-                    </p>
-                  </div>
-                </Coffeeshop>
                 <Coffeeshop key={element.name}>
                   <img src={element.photoURL} />
                   <div className="flexColumn basicInfo">
