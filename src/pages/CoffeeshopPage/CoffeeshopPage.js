@@ -7,7 +7,10 @@ import {
   BottomSection,
   ImageSlider,
   Address,
-  Reviews,
+  ReviewsWrapper,
+  AddReview,
+  AllReviews,
+  ProgressBar,
 } from "./Coffeeshop.styles";
 import Input from "../../components/Input/Input";
 import screen from "./screen.png";
@@ -51,7 +54,34 @@ const CoffeeshopPage = (props) => {
         </section>
       </AboutSection>
       <BottomSection>
-        <Reviews></Reviews>
+        <ReviewsWrapper>
+          <AddReview>
+            <input type="radio" />
+            <input type="radio" />
+            <input type="radio" />
+          </AddReview>
+          <AllReviews>
+            <div className="score">4,6</div>
+            <div className="flexColumn">
+              <ProgressBar>
+                <span className="label">5</span> <div className="bar"></div>
+              </ProgressBar>
+              <ProgressBar>
+                <span className="label">4</span> <div className="bar"></div>
+              </ProgressBar>
+              <ProgressBar>
+                <span className="label">3</span>
+                <div className="bar"></div>
+              </ProgressBar>
+              <ProgressBar>
+                <span className="label">2</span> <div className="bar"></div>
+              </ProgressBar>
+              <ProgressBar>
+                <span className="label">1</span> <div className="bar"></div>
+              </ProgressBar>
+            </div>
+          </AllReviews>
+        </ReviewsWrapper>
         <Address>
           <div className="flexColumn address">
             <span>{response.street}</span>
