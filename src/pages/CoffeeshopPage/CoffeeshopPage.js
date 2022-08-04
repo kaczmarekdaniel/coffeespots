@@ -6,18 +6,16 @@ import {
   AboutSection,
   BottomSection,
   ImageSlider,
-  Address,
-  ReviewsWrapper,
-  AddReview,
-  AllReviews,
-  ProgressBar,
+  Address
 } from "./Coffeeshop.styles";
 import Input from "../../components/Input/Input";
+import Review from "../../features/Reviews/Review";
+
 import screen from "./screen.png";
 import axios from "axios";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 
-const CoffeeshopPage = (props) => {
+const CoffeeshopPage = props => {
   const [response, setResponse] = useState(null);
   const params = useParams();
   console.log(params.coffeeshop);
@@ -28,6 +26,7 @@ const CoffeeshopPage = (props) => {
     try {
       const response = await axios.get(url);
       setResponse(response.data.data);
+      console.log(response.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -53,35 +52,9 @@ const CoffeeshopPage = (props) => {
           <ImageSlider></ImageSlider>
         </section>
       </AboutSection>
+
       <BottomSection>
-        <ReviewsWrapper>
-          <AddReview>
-            <input type="radio" />
-            <input type="radio" />
-            <input type="radio" />
-          </AddReview>
-          <AllReviews>
-            <div className="score">4,6</div>
-            <div className="flexColumn">
-              <ProgressBar>
-                <span className="label">5</span> <div className="bar"></div>
-              </ProgressBar>
-              <ProgressBar>
-                <span className="label">4</span> <div className="bar"></div>
-              </ProgressBar>
-              <ProgressBar>
-                <span className="label">3</span>
-                <div className="bar"></div>
-              </ProgressBar>
-              <ProgressBar>
-                <span className="label">2</span> <div className="bar"></div>
-              </ProgressBar>
-              <ProgressBar>
-                <span className="label">1</span> <div className="bar"></div>
-              </ProgressBar>
-            </div>
-          </AllReviews>
-        </ReviewsWrapper>
+        <Review reviews={response.reviews} />
         <Address>
           <div className="flexColumn address">
             <span>{response.street}</span>
