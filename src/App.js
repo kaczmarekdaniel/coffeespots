@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import "./styles/App.css";
 import styled from "styled-components";

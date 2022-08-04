@@ -12,7 +12,7 @@ const Toast = ({ className, children, handleClose, setModalState }) => {
 
   toastContainer.appendChild(toastNode);
 
-  const animateSlideOut = (e) => {
+  const animateSlideOut = e => {
     const element = e.target.parentElement.parentElement.classList;
     element.toggle("animateSlideOut");
     setTimeout(() => {
@@ -32,7 +32,7 @@ const Toast = ({ className, children, handleClose, setModalState }) => {
       <ToastMessage>
         {children}{" "}
         <button
-          onClick={(e) => {
+          onClick={e => {
             animateSlideOut(e);
           }}
         >

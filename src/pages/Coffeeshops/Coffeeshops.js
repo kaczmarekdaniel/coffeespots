@@ -101,7 +101,7 @@ const Coffeeshop = styled.div`
   }
 `;
 
-const Coffeeshops = (props) => {
+const Coffeeshops = props => {
   const [showFilters, setShowFilters] = useState(true);
   const [places, setPlaces] = useState(null);
 
@@ -124,34 +124,13 @@ const Coffeeshops = (props) => {
     fetchData();
   }, []);
 
-  const formHandler = async () => {
-    const data = {
-      name: "Przystań na kawę",
-      city: "Szczecin",
-      urlName: "przystan-na-kawe-szcecin",
-      street: "Rayskiego",
-      photoURL:
-        "https://bi.im-g.pl/im/0d/4b/16/z23378957IBG,Przystan-na-Kawe--nowy-lokal-przy-ul--Rayskiego-w-.jpg",
-
-      website: "https://altcoffee.pl",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed ",
-    };
-    try {
-      const response = await axios.post(url, data);
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   return (
     <Wrapper>
       <Filters />
       <ContentBox>
         {places != null ? (
           <>
-            {places.map((element) => (
+            {places.map(element => (
               <Link
                 to={element.urlName}
                 style={{ textDecoration: "none" }}

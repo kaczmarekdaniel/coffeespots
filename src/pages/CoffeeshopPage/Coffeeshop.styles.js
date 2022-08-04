@@ -112,15 +112,5 @@ export const Address = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 0 1px black;
   padding: 1px;
-`;
-
-export const Reviews = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: lightblue;
 `;

@@ -6,15 +6,16 @@ import {
   AboutSection,
   BottomSection,
   ImageSlider,
-  Address,
-  Reviews,
+  Address
 } from "./Coffeeshop.styles";
 import Input from "../../components/Input/Input";
+import Review from "../../features/Reviews/Review";
+
 import screen from "./screen.png";
 import axios from "axios";
 import ArrowButton from "../../components/ArrowButton/ArrowButton";
 
-const CoffeeshopPage = (props) => {
+const CoffeeshopPage = props => {
   const [response, setResponse] = useState(null);
   const params = useParams();
   console.log(params.coffeeshop);
@@ -25,6 +26,7 @@ const CoffeeshopPage = (props) => {
     try {
       const response = await axios.get(url);
       setResponse(response.data.data);
+      console.log(response.data.data);
     } catch (e) {
       console.log(e);
     }
@@ -50,8 +52,9 @@ const CoffeeshopPage = (props) => {
           <ImageSlider></ImageSlider>
         </section>
       </AboutSection>
+
       <BottomSection>
-        <Reviews></Reviews>
+        <Review reviews={response.reviews} />
         <Address>
           <div className="flexColumn address">
             <span>{response.street}</span>
