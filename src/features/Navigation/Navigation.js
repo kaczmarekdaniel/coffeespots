@@ -35,7 +35,7 @@ const AppButton = styled.div`
   height: 50%;
 `;
 
-const Navigation = (props) => {
+const Navigation = props => {
   return (
     <Wrapper>
       <Logo>
@@ -46,6 +46,7 @@ const Navigation = (props) => {
         <NavButton text={"poradniki"} target={"/guides"} />
         <NavButton text={"ui"} target={"/components"} />
         <NavButton text={"kawiarnie"} target={"/coffeeshops"} />
+        <NavButton text={"dodaj"} target={"/propose"} />
       </NavBar>
       <AppButton className="flexRow">Coffee App -&gt;</AppButton>
     </Wrapper>

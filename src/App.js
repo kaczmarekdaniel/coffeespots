@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import Error404 from "./pages/Error404/Error404";
 import ComponentsShowOff from "./pages/ComponentsShowOff/ComponentsShowOff";
 import Footer from "./features/Footer/Footer";
+import ProposeForm from "./pages/ProposeForm/ProposeForm";
 import GuidesRouter from "./pages/Guides/GuidesRouter";
 import CoffeeshopsRouter from "./pages/Coffeeshops/CoffeeshopsRouter";
 const ContentContainer = styled.div`
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
         <Route path="components" exact element={<ComponentsShowOff />} />
+        <Route path="propose" exact element={<ProposeForm />} />
 
         <Route path="guides/*" exact element={<GuidesRouter />} />
         <Route path="coffeeshops/*" exact element={<CoffeeshopsRouter />} />
