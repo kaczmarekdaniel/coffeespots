@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import Input from "../../components/Input/Input";
+import { useSearchParams } from "react-router-dom";
 
 const FilterBox = styled.header`
   height: 75px;
@@ -30,9 +31,15 @@ const LocationSelect = styled.button`
 const LocationDropdown = styled.div``;
 
 const Filters = (props) => {
+  let [searchParams, setSearchParams] = useSearchParams({});
+  const input = useRef("");
+
+  const handleChange = (e) => {
+    setSearchParams({ query: e.target.value }, "push");
+  };
   return (
     <FilterBox className="flexRow">
-      <Input type="text"></Input>
+      <input type="text" onChange={handleChange}></input>
       <LocationSelect>
         <span>Location</span>
         <LocationDropdown></LocationDropdown>

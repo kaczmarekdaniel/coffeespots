@@ -46,7 +46,7 @@ const Input = ({ placeholder = "Type here ...", setInputValue }) => {
     <Wrapper className="flexRow">
       <TextInput
         placeholder={placeholder}
-        onKeyUp={(e) => {
+        onChange={(e) => {
           setInputValue(e.target.value.toLowerCase());
         }}
       ></TextInput>

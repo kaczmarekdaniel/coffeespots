@@ -7,6 +7,7 @@ import SlideFromSideButton from "../../components/SlideFromSideButton/SlideFromS
 import StickyFilters from "../../features/StickyFilters/StickyFilters";
 import axios from "axios";
 import Filters from "../../features/Filters/Filters";
+import CoffeeshopCardSkeleton from "../../components/CoffeeshopCardSkeleton/CoffeeshopCardSkeleton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -101,13 +102,8 @@ const Coffeeshop = styled.div`
   }
 `;
 
-const Coffeeshops = props => {
-  const [showFilters, setShowFilters] = useState(true);
+const Coffeeshops = (props) => {
   const [places, setPlaces] = useState(null);
-
-  const toggleState = (showFilters, setShowFilters) => {
-    setShowFilters(!showFilters);
-  };
 
   const url = "http://localhost:4500/coffeeshop";
 
@@ -130,14 +126,14 @@ const Coffeeshops = props => {
       <ContentBox>
         {places != null ? (
           <>
-            {places.map(element => (
+            {places.map((element) => (
               <Link
                 to={element.urlName}
                 style={{ textDecoration: "none" }}
                 key={element._id}
               >
                 <Coffeeshop key={element.name}>
-                  <img src={element.photoURL} />
+                  <img src={element.photoURL} alt="" />
                   <div className="flexColumn basicInfo">
                     <h1>{element.name}</h1>
                     <p>
@@ -149,7 +145,7 @@ const Coffeeshops = props => {
             ))}
           </>
         ) : (
-          "loading..."
+          <CoffeeshopCardSkeleton />
         )}
       </ContentBox>
     </Wrapper>
