@@ -1,4 +1,4 @@
-https://peaceful-bonbon-8e45a0.netlify.app/coffeeshops
+https://peaceful-bonbon-8e45a0.netlify.app
 
 Frontend side of full-stack app.
 Stack: React with StyledComponents, Redux, NodeJS, Express, Mongoose, MongoDB.
